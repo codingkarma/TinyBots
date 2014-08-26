@@ -10,8 +10,12 @@ namespace TinyBots
     {
         public void SendMessage(string name, string message)
         {
-            //Clients.All.hello();
             Clients.All.broadcastMessage(name, message);
+        }
+        public void Attack(int damage)
+        {
+            //Clients.All.hello();
+            Clients.All.broadcastAttack(damage);
         }
     }
 }
