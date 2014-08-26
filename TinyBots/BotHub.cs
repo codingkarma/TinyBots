@@ -12,10 +12,9 @@ namespace TinyBots
         {
             Clients.All.broadcastMessage(name, message);
         }
-        public void Attack(int damage)
+        public void Attack(RobotModel attacker, RobotModel defender)
         {
-            //Clients.All.hello();
-            Clients.All.broadcastAttack(damage);
+            Clients.All.broadcastAttack(defender, attacker);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿function Robot(name, speed, damage, hitpoints, energy) {
+﻿function Robot(id, name, speed, damage, hitpoints, energy) {
+    this.id = id;
     this.name = name;
     this.speed = speed;
     this.damage = damage;

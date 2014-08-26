@@ -83,6 +83,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="GameScripts\Game.js" />
     <Content Include="GameScripts\Robot.js" />
     <Content Include="Images\robot.png" />
     <Content Include="packages.config" />
@@ -106,6 +107,7 @@
   <ItemGroup>
     <Compile Include="BotHub.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Models\Robot.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup />

@@ -55,6 +55,7 @@
         <input type="text" id="message" />
         <input type="button" id="sendmessage" value="Send" />
         <input type="button" id="attack" value="attack" />
+        <input type="button" id="attack2" value="attack2" />
         <input type="hidden" id="displayname" />
         <ul id="discussion"></ul>
     </div>
@@ -69,6 +70,7 @@
 
     <!--Game Scripts-->
     <script src="GameScripts/Robot.js"></script>
+    <script src="GameScripts/Game.js"></script>
 
     <script type="text/javascript">
         $(function () {
@@ -83,28 +85,40 @@
                 $('#discussion').append('<li><strong>' + encodedName
                     + '</strong>:&nbsp;&nbsp;' + encodedMsg + '</li>');
             };
-            botProxy.client.broadcastAttack = function (damage) {
-                enemy.hitpoints -= damage;
-                $('#player2 > .player-name').text('ENEMY PLAYER HP:' + enemy.hitpoints);
+            botProxy.client.broadcastAttack = function (attacker, defender) {
+                if (game.robots[0].id == defender.id) {
+                    player.hitpoints -= attacker.damage;
+                    $('#player1 > .player-name').text('PLAYER HP:' + player.hitpoints);
+                }
+                else {
+                    enemy.hitpoints -= attacker.damage;
+                    $('#player2 > .player-name').text('ENEMY PLAYER HP:' + enemy.hitpoints);
+                }
             };
             // Get the user name and store it to prepend to messages.
             var name = prompt('Enter your name:', '');
             $('#player1 > .player-name').text(name);
-            var robot = new Robot(name, 10, 10, 50);
-            var enemy = new Robot('ENEMYROBOT', 10, 10, 50);
+            var player = new Robot(1, name, 10, 10, 50);
+            var enemy = new Robot(2, 'ENEMYROBOT', 10, 10, 50);
+
+            var game = new Game([player, enemy]);
             // Set initial focus to message input box.
             $('#message').focus();
             // Start the connection.
             $.connection.hub.start().done(function () {
                 $('#sendmessage').click(function () {
                     // Call the Send method on the hub.
-                    botProxy.server.sendMessage(robot.name, $('#message').val());
+                    botProxy.server.sendMessage(player.name, $('#message').val());
                     // Clear text box and reset focus for next comment.
                     $('#message').val('').focus();
                 });
                 $('#attack').click(function () {
                     // Call the Send method on the hub.
-                    botProxy.server.attack(robot.damage);
+                    botProxy.server.attack(player, enemy);
+                });
+                $('#attack2').click(function () {
+                    // Call the Send method on the hub.
+                    botProxy.server.attack(enemy, player);
                 });
             });
         });
