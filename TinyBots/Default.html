@@ -54,8 +54,8 @@
         </div>
         <input type="text" id="message" />
         <input type="button" id="sendmessage" value="Send" />
-        <input type="button" id="attack" value="attack" />
-        <input type="button" id="attack2" value="attack2" />
+        <input type="button" id="attack" value="attack" disabled />
+        <input type="button" id="attack2" value="attack2" disabled />
         <input type="hidden" id="displayname" />
         <ul id="discussion"></ul>
     </div>
@@ -95,10 +95,16 @@
                     $('#player2 > .player-name').text('ENEMY PLAYER HP:' + enemy.hitpoints);
                 }
             };
-            // Get the user name and store it to prepend to messages.
-            var name = prompt('Enter your name:', '');
-            $('#player1 > .player-name').text(name);
-            var player = new Robot(1, name, 10, 10, 50);
+            botProxy.client.onConnect = function () {
+                player.name = prompt('Enter your name:', '');
+                $('#player1 > .player-name').text(player.name);
+                botProxy.state.id = player.id;
+                botProxy.server.join(player);
+            };
+            botProxy.client.enablePlay = function () {
+                $('#attack,#attack2').prop('disabled', false);
+            };
+            var player = new Robot(1, '', 10, 10, 50);
             var enemy = new Robot(2, 'ENEMYROBOT', 10, 10, 50);
 
             var game = new Game([player, enemy]);
