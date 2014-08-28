@@ -20,11 +20,11 @@ namespace TinyBots
             var user = Clients.Caller.user;
             Clients.All.broadcastMessage(name, message);
         }
-        public void Attack(RobotModel attacker, RobotModel defender)
+        public void Attack(Robot attacker, Robot defender)
         {
             Clients.All.broadcastAttack(attacker, defender);
         }
-        public void Join(RobotModel player)
+        public void Join(Robot player)
         {
             StateHelper.AddRobot(player);
             if(StateHelper.Ready())

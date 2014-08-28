@@ -85,9 +85,11 @@
   <ItemGroup>
     <Content Include="GameScripts\Game.js" />
     <Content Include="GameScripts\Robot.js" />
+    <Content Include="GameScripts\Tinybots.js" />
     <Content Include="Images\robot.png" />
     <Content Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <None Include="Properties\PublishProfiles\tinybots.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

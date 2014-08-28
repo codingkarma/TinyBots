@@ -7,6 +7,6 @@ namespace TinyBots.Models
 {
     public class GameState
     {
-        public List<RobotModel> Robots = new List<RobotModel>();
+        public List<Robot> Robots = new List<Robot>();
     }
 }

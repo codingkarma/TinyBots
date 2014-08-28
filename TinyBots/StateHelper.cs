@@ -10,7 +10,7 @@ namespace TinyBots
     {
         private static GameState gameState = new GameState();
 
-        public static void AddRobot(RobotModel robot)
+        public static void AddRobot(Robot robot)
         {
             gameState.Robots.Add(robot);
         }
