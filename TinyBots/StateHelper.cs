@@ -8,16 +8,28 @@ namespace TinyBots
 {
     public static class StateHelper
     {
-        private static GameState gameState = new GameState();
+        private static List<Game> Games = new List<Game>();
 
-        public static void AddRobot(Robot robot)
+        public static Game Join(Robot robot)
         {
-            gameState.Robots.Add(robot);
+            if(Games.Count > 0 && Games[Games.Count-1].Robots.Count == 1)
+            {
+                //TODO: FIX THIS HACK
+                robot.id = 2;
+                Games[Games.Count - 1].Robots.Add(robot);
+                return Games[Games.Count - 1];
+            }
+            //If we dont have any games with only one person in them, go ahead and create a new game and add it to our state
+            Games.Add(new Game()
+                {
+                    GameId = Games.Count,
+                    Robots = new List<Robot>() {robot}
+                });
+            return Games[Games.Count - 1];
         }
-
-        public static bool Ready()
+        public static bool Ready(int gameId)
         {
-            return gameState.Robots.Count >= 2;
+            return Games.First(x => x.GameId == gameId).Robots.Count == 2;
         }
     }
 }

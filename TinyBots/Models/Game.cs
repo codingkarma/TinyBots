@@ -5,8 +5,9 @@ using System.Web;
 
 namespace TinyBots.Models
 {
-    public class GameState
+    public class Game
     {
+        public int GameId;
         public List<Robot> Robots = new List<Robot>();
     }
 }

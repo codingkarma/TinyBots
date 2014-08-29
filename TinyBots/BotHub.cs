@@ -26,9 +26,11 @@ namespace TinyBots
         }
         public void Join(Robot player)
         {
-            StateHelper.AddRobot(player);
-            if(StateHelper.Ready())
+            var joinedGame = StateHelper.Join(player);
+            Clients.All.createPlayer(player);
+            if(StateHelper.Ready(joinedGame.GameId))
             {
+                Clients.All.createPlayer(joinedGame.Robots[0]);
                 Clients.All.enablePlay();
             }
         }
