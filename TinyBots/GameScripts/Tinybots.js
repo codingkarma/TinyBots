@@ -18,13 +18,12 @@
         else {
             game.robots[1].hitpoints -= attacker.damage;
         }
-        $('#player1 > .player-name').text('My Hp:' + game.robots[botProxy.state.id].hitpoints);
-        $('#player2 > .player-name').text('ENEMY ROBOT HP:' + game.robots[Math.abs(botProxy.state.id-1)].hitpoints);
+        $('#player1 > .player-name').text(game.robots[botProxy.state.id].name + ' Hp:' + game.robots[botProxy.state.id].hitpoints);
+        $('#player2 > .player-name').text(game.robots[Math.abs(botProxy.state.id-1)].name + ' HP:' + game.robots[Math.abs(botProxy.state.id-1)].hitpoints);
     };
 
     botProxy.client.onConnect = function () {
         var name = prompt('Enter your name:', '');
-        $('#player1 > .player-name').text(name);
         botProxy.server.join(new Robot(1, name, 10, 10, 50, 10));
     };
     botProxy.client.createPlayer = function (robot) {
@@ -33,7 +32,8 @@
     };
     botProxy.client.enablePlay = function () {
         $('#attack').prop('disabled', false);
-        $('#attack2').prop('disabled', false);
+        $('#player1 > .player-name').text(game.robots[botProxy.state.id].name + ' Hp:' + game.robots[botProxy.state.id].hitpoints);
+        $('#player2 > .player-name').text(game.robots[Math.abs(botProxy.state.id - 1)].name + ' HP:' + game.robots[Math.abs(botProxy.state.id - 1)].hitpoints);
     };
 
     $.connection.hub.start().done(function () {
