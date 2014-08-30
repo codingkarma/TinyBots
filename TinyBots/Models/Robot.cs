@@ -13,5 +13,6 @@ namespace TinyBots
         public int damage;
         public int hitpoints;
         public int energy;
+        public int gameId;
     }
 }

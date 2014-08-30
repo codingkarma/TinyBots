@@ -22,11 +22,13 @@ namespace TinyBots
         }
         public void Attack(Robot attacker, Robot defender)
         {
-            Clients.All.broadcastAttack(attacker, defender);
+            Clients.Group(attacker.gameId.ToString()).broadcastAttack(attacker, defender);
         }
         public void Join(Robot player)
         {
             var joinedGame = StateHelper.Join(player);
+            player.gameId = joinedGame.GameId;
+            Groups.Add(Context.ConnectionId, joinedGame.GameId.ToString());
             Clients.All.createPlayer(player);
             if(StateHelper.Ready(joinedGame.GameId))
             {

@@ -5,4 +5,5 @@
     this.damage = damage;
     this.hitpoints = hitpoints;
     this.energy = energy;
+    this.gameId = 0;
 }
