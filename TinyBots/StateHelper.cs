@@ -10,7 +10,7 @@ namespace TinyBots
     {
         private static List<Game> Games = new List<Game>();
 
-        public static Game Join(Robot robot)
+        public static Game Join(RobotModel robot)
         {
             if(Games.Count > 0 && Games[Games.Count-1].Robots.Count == 1)
             {
@@ -23,13 +23,20 @@ namespace TinyBots
             Games.Add(new Game()
                 {
                     GameId = Games.Count,
-                    Robots = new List<Robot>() {robot}
+                    Robots = new List<RobotModel>() {robot}
                 });
             return Games[Games.Count - 1];
         }
         public static bool Ready(int gameId)
         {
             return Games.First(x => x.GameId == gameId).Robots.Count == 2;
+        }
+        public static int GetNextMove(int gameId)
+        {
+            var game = Games.First(x => x.GameId == gameId);
+            game.Robots.OrderBy(x => x.timeUntilAttack).First().timeUntilAttack = 0;
+
+            return 0;
         }
     }
 }

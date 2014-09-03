@@ -6,4 +6,5 @@
     this.hitpoints = hitpoints;
     this.energy = energy;
     this.gameId = 0;
+    this.timeUntilAttack = speed;
 }

@@ -23,12 +23,13 @@
     };
 
     botProxy.client.onConnect = function () {
-        var name = prompt('Enter your name:', '');
+        var name = prompt('Enter robot Id(1-5):', '');
         botProxy.server.join(new Robot(1, name, 10, 10, 50, 10));
     };
     botProxy.client.createPlayer = function (robot) {
         game.robots.push(robot);
         botProxy.state.id = robot.id - 1;
+        $('#connectedPlayers').append(robot.name + ' ');
     };
     botProxy.client.enablePlay = function () {
         $('#attack').prop('disabled', false);

@@ -5,6 +5,10 @@ VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinyBots", "TinyBots\TinyBots.csproj", "{656FA3D0-F2DD-4928-BB56-64023F813C8B}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TinyBots.Database", "TinyBots.Database\TinyBots.Database.sqlproj", "{B208B111-5AE3-4F6A-98A9-D71345165921}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinyBots.Data", "TinyBots.Data\TinyBots.Data.csproj", "{A73BE617-386F-4ADE-A83D-057A619E2775}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,16 @@ Global
 		{656FA3D0-F2DD-4928-BB56-64023F813C8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{656FA3D0-F2DD-4928-BB56-64023F813C8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{656FA3D0-F2DD-4928-BB56-64023F813C8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B208B111-5AE3-4F6A-98A9-D71345165921}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B208B111-5AE3-4F6A-98A9-D71345165921}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B208B111-5AE3-4F6A-98A9-D71345165921}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B208B111-5AE3-4F6A-98A9-D71345165921}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B208B111-5AE3-4F6A-98A9-D71345165921}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B208B111-5AE3-4F6A-98A9-D71345165921}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{A73BE617-386F-4ADE-A83D-057A619E2775}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A73BE617-386F-4ADE-A83D-057A619E2775}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A73BE617-386F-4ADE-A83D-057A619E2775}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A73BE617-386F-4ADE-A83D-057A619E2775}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

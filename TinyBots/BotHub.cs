@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using Microsoft.AspNet.SignalR;
 using System.Threading.Tasks;
+using TinyBots.Data;
 
 namespace TinyBots
 {
@@ -20,15 +21,17 @@ namespace TinyBots
             var user = Clients.Caller.user;
             Clients.All.broadcastMessage(name, message);
         }
-        public void Attack(Robot attacker, Robot defender)
+        public void Attack(RobotModel attacker, RobotModel defender)
         {
             Clients.Group(attacker.gameId.ToString()).broadcastAttack(attacker, defender);
         }
-        public void Join(Robot player)
+        public void Join(RobotModel player)
         {
+            //var robot = DataHelper.GetRobot(player.id);
             var joinedGame = StateHelper.Join(player);
             player.gameId = joinedGame.GameId;
             Groups.Add(Context.ConnectionId, joinedGame.GameId.ToString());
+
             Clients.All.createPlayer(player);
             if(StateHelper.Ready(joinedGame.GameId))
             {

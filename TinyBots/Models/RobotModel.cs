@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TinyBots
 {
-    public class Robot
+    public class RobotModel
     {
         public int id;
         public string name;
@@ -14,5 +14,6 @@ namespace TinyBots
         public int hitpoints;
         public int energy;
         public int gameId;
+        public int timeUntilAttack;
     }
 }
