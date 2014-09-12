@@ -7,8 +7,10 @@
         var encodedName = $('<div />').text(name).html();
         var encodedMsg = $('<div />').text(message).html();
         // Add the message to the page.
-        $('#chat').append('<li><strong>' + encodedName
-            + '</strong>:&nbsp;&nbsp;' + encodedMsg + '</li>');
+        $('#chat').append('<p><strong>' + encodedName
+            + '</strong>:&nbsp;&nbsp;' + encodedMsg + '</p>');
+        //TO DO: Auto adjust scroll height of chat box
+        //$("#chat").scrollTop($("#chat")[0].scrollHeight);
     };
 
     botProxy.client.broadcastAttack = function (attacker, defender) {
@@ -46,6 +48,16 @@
             $('#message').val('').focus();
         });
 
+        $("#message").keypress(function (event) {
+            if (event && event.keyCode == 13) {
+                // Call the Send method on the hub.
+                var player = game.robots[botProxy.state.id];
+                botProxy.server.sendMessage(player.name, $('#message').val());
+                // Clear text box and reset focus for next comment.
+                $('#message').val('').focus();
+            }
+        });
+
         $('#attack').click(function () {
             // Call the Send method on the hub.
             var player = game.robots[botProxy.state.id];
@@ -53,4 +65,5 @@
             botProxy.server.attack(player, enemy);
         });
     });
+
 }

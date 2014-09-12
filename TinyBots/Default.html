@@ -9,39 +9,7 @@
     <meta http-equiv="pragma" content="no-cache" />
 
     <title>Tiny Bots</title>
-    <style type="text/css">
-        .container {
-            background-color: #99CCFF;
-            border: thick solid #808080;
-            padding: 20px;
-            margin: 20px;
-            overflow:hidden;
-        }
-        .player{
-            height:250px;
-        }
-        .player-image{
-            height:85%;
-        }
-        div > img {
-            width: auto;
-            height : auto;
-            max-height: 100%;
-            max-width: 100%;
-        }
-        .player-name{
-            font-size:large;
-            font-family:David;
-        }
-        #player1{
-            float:left;
-            width:50%;
-        }
-        #player2{
-            float:right;
-            width:50%;
-        }
-    </style>
+    <link href="Styles/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <div class="container">
@@ -60,9 +28,23 @@
                 <div class="player-name">Waiting for Opponent</div>
             </div>
         </div>
-        <input type="text" id="message" />
-        <input type="button" id="sendmessage" value="Send" />
-        <ul id="chat"></ul>
+        <div class="container-chat">
+            <div class="chat">
+                <div id="chat">
+                    CHAT
+                </div>
+            </div>
+            <div class="input-group chat-input-group">
+                <span class="input-group-addon input-chat">You: </span>
+                <input id="message" type="text" class="form-control input-chat" placeholder="chat">
+            </div>
+            <div class="input-group chatsend-input-group">
+                <input type="button" id="sendmessage" value="Send" />
+            </div>
+        </div>
+        <!--<input type="text" id="message" />
+        <ul id="chat"></ul>-->
+        <div id="connectedPlayers">Connected Players: </div>
     </div>
     <!--Script references. -->
     <!--Reference the jQuery library. -->
@@ -82,7 +64,8 @@
         $(function () {
             ConnectAndWireEvents();
         });
+
     </script>
-    <div id="connectedPlayers">Connected Players: </div>
+    
 </body>
 </html>

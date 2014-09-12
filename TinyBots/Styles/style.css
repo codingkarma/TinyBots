@@ -1,0 +1,122 @@
+﻿body {
+    height: 100%;
+    width: 100%;
+    margin: auto;
+}
+.container {
+    position: absolute;
+    background-image: linear-gradient(0deg, #888888, #EEEEEE);
+    height: 80%;
+    padding: 1%;
+	top: .2em;
+    bottom: calc(2% + 3.4em);
+	width: 92%;
+	margin-left: 3%;
+    margin-right: 3%;
+	margin-top: 5px;
+	margin-bottom: 0px;
+	border-radius: 8px;
+}
+.player{
+    height:250px;
+}
+.player-image{
+    height:85%;
+}
+div > img {
+    width: auto;
+    height : auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+.player-name{
+    font-size:large;
+    font-family:David;
+}
+#player1{
+    float:left;
+    width:50%;
+}
+#player2{
+    float:right;
+    width:50%;
+}
+
+.container-chat {
+    position: absolute;
+	height: 100%;
+    width: 50%;
+	padding: 5px 5px 5px 5px;
+	margin: 0px 0px 0px 0px;
+    bottom: 5px;
+}
+
+.chat {
+    font-family: Consolas;
+	position: absolute;
+	bottom:2.8em !important;
+    top: auto !important;
+	height: 20%;
+    min-height: 2em;
+    max-height:80%;
+	right: 5px; left:5px;
+	background-color: rgba(255,255,255,0.75);
+	border: solid;
+	border-width: 1px;
+	border-color: #A8A8A8;
+	border-radius: 4px 4px 0px 0px;
+	padding: 5px 5px 5px 5px;
+	margin: 0;
+    border-top-color: #585858;
+    border-top-width: 2px;
+    overflow-x: hidden;
+}
+
+#chat > p {
+    margin: 0em 0em 0em 0em;
+    padding: 0em .2em 0em 0em;
+}
+
+#chat {
+    display: block;
+    position:inherit;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    /*overflow: auto;*/
+}
+
+.chat-input-group {
+	position:absolute;
+	height: 2em;
+    width: 70%;
+	right:30%; left:5px;
+	bottom:.4em;
+}
+
+.chatsend-input-group {
+	position:absolute;
+	height: 2em;
+	bottom:.4em;
+	right:5px;
+	width:28%;
+}
+
+.hidden-submit {
+    border: 0 none;
+    height: 0;
+    width: 0;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.input-chat {
+	border-radius: 0px 0px 4px 4px;
+}
+
+.attack-panel {
+    height: 100%;
+    float: right;
+    width: 40%;
+}
